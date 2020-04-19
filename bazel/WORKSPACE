@@ -1,0 +1,11 @@
+new_local_repository(
+    name = "ddtrace_bridge",
+    path = "../bridge",
+    build_file = "BUILD.bridge",
+)
+
+new_local_repository(
+    name = "ddtrace_php_source",
+    path = "../src/DDTrace",
+    build_file = "BUILD.my-ssl",
+)

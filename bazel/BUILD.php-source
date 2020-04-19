@@ -1,0 +1,6 @@
+filegroup(
+    name = ":ddtrace-php-source",
+    srcs = glob([
+        "**/*.php",
+    ]),
+)
