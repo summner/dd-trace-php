@@ -164,7 +164,7 @@ function quiet_file_exists($file)
 echo 'DataDog trace extension verification' . PHP_EOL . PHP_EOL;
 
 render('PHP version and SAPI', PHP_VERSION . ' - ' . PHP_SAPI);
-renderSuccessOrFailure('ddtrace extension installed', extension_loaded('ddtrace') || extension_loaded('dd_trace'));
+renderSuccessOrFailure('ddtrace extension installed', dd_extension_loaded('ddtrace') || dd_extension_loaded('dd_trace'));
 $versionInstalled = phpversion('ddtrace') ?: false;
 render('ddtrace version (installed)', $versionInstalled);
 $versionConst = defined('DD_TRACE_VERSION') ? DD_TRACE_VERSION : false;

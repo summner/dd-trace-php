@@ -41,7 +41,7 @@ class DDTrace_Ddtrace extends Zend_Application_Resource_ResourceAbstract
         if (!Configuration::get()->isIntegrationEnabled(self::NAME)) {
             return false;
         }
-        if (!extension_loaded('ddtrace')) {
+        if (!dd_extension_loaded('ddtrace')) {
             trigger_error('ddtrace extension required to load Zend Framework 1 integration.', E_USER_WARNING);
             return false;
         }

@@ -212,7 +212,7 @@ class Zend_Locale_Math
      */
     public static function exponent($value, $scale = null)
     {
-        if (!extension_loaded('bcmath')) {
+        if (!dd_extension_loaded('bcmath')) {
             return $value;
         }
 
@@ -347,7 +347,7 @@ class Zend_Locale_Math
     }
 }
 
-if (!extension_loaded('bcmath')
+if (!dd_extension_loaded('bcmath')
     || (defined('TESTS_ZEND_LOCALE_BCMATH_ENABLED') && !TESTS_ZEND_LOCALE_BCMATH_ENABLED)
 ) {
     require_once 'Zend/Locale/Math/PhpMath.php';

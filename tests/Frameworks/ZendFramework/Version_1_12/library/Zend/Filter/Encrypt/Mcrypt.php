@@ -73,7 +73,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      */
     public function __construct($options)
     {
-        if (!extension_loaded('mcrypt')) {
+        if (!dd_extension_loaded('mcrypt')) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This filter needs the mcrypt extension');
         }

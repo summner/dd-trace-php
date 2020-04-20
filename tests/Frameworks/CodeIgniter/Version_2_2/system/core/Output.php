@@ -373,7 +373,7 @@ class CI_Output {
 		// Is compression requested?
 		if ($CFG->item('compress_output') === TRUE && $this->_zlib_oc == FALSE)
 		{
-			if (extension_loaded('zlib'))
+			if (dd_extension_loaded('zlib'))
 			{
 				if (isset($_SERVER['HTTP_ACCEPT_ENCODING']) AND strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== FALSE)
 				{

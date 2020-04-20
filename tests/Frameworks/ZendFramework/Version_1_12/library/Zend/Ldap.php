@@ -121,7 +121,7 @@ class Zend_Ldap
      */
     public function __construct($options = array())
     {
-        if (!extension_loaded('ldap')) {
+        if (!dd_extension_loaded('ldap')) {
             /**
              * @see Zend_Ldap_Exception
              */

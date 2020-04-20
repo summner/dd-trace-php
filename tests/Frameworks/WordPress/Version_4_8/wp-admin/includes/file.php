@@ -1015,9 +1015,9 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 		}
  	}
 
-	if ( ! $method && isset($args['connection_type']) && 'ssh' == $args['connection_type'] && extension_loaded('ssh2') && function_exists('stream_get_contents') ) $method = 'ssh2';
-	if ( ! $method && extension_loaded('ftp') ) $method = 'ftpext';
-	if ( ! $method && ( extension_loaded('sockets') || function_exists('fsockopen') ) ) $method = 'ftpsockets'; //Sockets: Socket extension; PHP Mode: FSockopen / fwrite / fread
+	if ( ! $method && isset($args['connection_type']) && 'ssh' == $args['connection_type'] && dd_extension_loaded('ssh2') && function_exists('stream_get_contents') ) $method = 'ssh2';
+	if ( ! $method && dd_extension_loaded('ftp') ) $method = 'ftpext';
+	if ( ! $method && ( dd_extension_loaded('sockets') || function_exists('fsockopen') ) ) $method = 'ftpsockets'; //Sockets: Socket extension; PHP Mode: FSockopen / fwrite / fread
 
 	/**
 	 * Filters the filesystem method to use.
@@ -1172,11 +1172,11 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	}
 
 	$types = array();
-	if ( extension_loaded('ftp') || extension_loaded('sockets') || function_exists('fsockopen') )
+	if ( dd_extension_loaded('ftp') || dd_extension_loaded('sockets') || function_exists('fsockopen') )
 		$types[ 'ftp' ] = __('FTP');
-	if ( extension_loaded('ftp') ) //Only this supports FTPS
+	if ( dd_extension_loaded('ftp') ) //Only this supports FTPS
 		$types[ 'ftps' ] = __('FTPS (SSL)');
-	if ( extension_loaded('ssh2') && function_exists('stream_get_contents') )
+	if ( dd_extension_loaded('ssh2') && function_exists('stream_get_contents') )
 		$types[ 'ssh' ] = __('SSH2');
 
 	/**

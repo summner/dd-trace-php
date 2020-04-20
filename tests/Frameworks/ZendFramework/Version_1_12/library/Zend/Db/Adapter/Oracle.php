@@ -111,7 +111,7 @@ class Zend_Db_Adapter_Oracle extends Zend_Db_Adapter_Abstract
             return;
         }
 
-        if (!extension_loaded('oci8')) {
+        if (!dd_extension_loaded('oci8')) {
             /**
              * @see Zend_Db_Adapter_Oracle_Exception
              */

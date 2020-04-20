@@ -347,7 +347,7 @@ class SimplePie_gzdecode
 			// Check CRC of data
 			$crc = current(unpack('V', substr($this->compressed_data, $this->position, 4)));
 			$this->position += 4;
-			/*if (extension_loaded('hash') && sprintf('%u', current(unpack('V', hash('crc32b', $this->data)))) !== sprintf('%u', $crc))
+			/*if (dd_extension_loaded('hash') && sprintf('%u', current(unpack('V', hash('crc32b', $this->data)))) !== sprintf('%u', $crc))
 			{
 				return false;
 			}*/

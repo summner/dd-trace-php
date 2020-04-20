@@ -170,7 +170,7 @@ class CakeTestSuiteDispatcher {
  * @return void
  */
 	protected function _checkXdebug() {
-		if (!extension_loaded('xdebug')) {
+		if (!dd_extension_loaded('xdebug')) {
 			$baseDir = $this->_baseDir;
 			include CAKE . 'TestSuite' . DS . 'templates' . DS . 'xdebug.php';
 			exit();

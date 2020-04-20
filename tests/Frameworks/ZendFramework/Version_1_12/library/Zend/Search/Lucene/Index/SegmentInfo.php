@@ -384,7 +384,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
                 $delBytes = $delFile->readBytes($byteCount);
             }
 
-            if (extension_loaded('bitset')) {
+            if (dd_extension_loaded('bitset')) {
                 return $delBytes;
             } else {
                 $deletions = array();
@@ -424,7 +424,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
         $format = $delFile->readInt();
 
         if ($format == (int)0xFFFFFFFF) {
-            if (extension_loaded('bitset')) {
+            if (dd_extension_loaded('bitset')) {
                 $deletions = bitset_empty();
             } else {
                 $deletions = array();
@@ -443,7 +443,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
                 $byteNum += $dgap;
 
 
-                if (extension_loaded('bitset')) {
+                if (dd_extension_loaded('bitset')) {
                     for ($bit = 0; $bit < 8; $bit++) {
                         if ($nonZeroByte & (1<<$bit)) {
                             bitset_incl($deletions, $byteNum*8 + $bit);
@@ -471,7 +471,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
                 $delBytes = $delFile->readBytes($byteCount);
             }
 
-            if (extension_loaded('bitset')) {
+            if (dd_extension_loaded('bitset')) {
                 return $delBytes;
             } else {
                 $deletions = array();
@@ -700,7 +700,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
             return 0;
         }
 
-        if (extension_loaded('bitset')) {
+        if (dd_extension_loaded('bitset')) {
             return count(bitset_to_array($this->_deleted));
         } else {
             return count($this->_deleted);
@@ -1481,7 +1481,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     {
         $this->_deletedDirty = true;
 
-        if (extension_loaded('bitset')) {
+        if (dd_extension_loaded('bitset')) {
             if ($this->_deleted === null) {
                 $this->_deleted = bitset_empty($id);
             }
@@ -1507,7 +1507,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
             return false;
         }
 
-        if (extension_loaded('bitset')) {
+        if (dd_extension_loaded('bitset')) {
             return bitset_in($this->_deleted, $id);
         } else {
             return isset($this->_deleted[$id]);
@@ -1586,14 +1586,14 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
 
             $latestDelete = $this->_loadDelFile();
 
-            if (extension_loaded('bitset')) {
+            if (dd_extension_loaded('bitset')) {
                 $this->_deleted = bitset_union($this->_deleted, $latestDelete);
             } else {
                 $this->_deleted += $latestDelete;
             }
         }
 
-        if (extension_loaded('bitset')) {
+        if (dd_extension_loaded('bitset')) {
             $delBytes = $this->_deleted;
             $bitCount = count(bitset_to_array($delBytes));
         } else {

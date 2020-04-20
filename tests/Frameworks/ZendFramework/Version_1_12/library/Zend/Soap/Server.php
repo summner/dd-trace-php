@@ -171,7 +171,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
      */
     public function __construct($wsdl = null, array $options = null)
     {
-        if (!extension_loaded('soap')) {
+        if (!dd_extension_loaded('soap')) {
             require_once 'Zend/Soap/Server/Exception.php';
             throw new Zend_Soap_Server_Exception('SOAP extension is not loaded.');
         }

@@ -46,7 +46,7 @@ class Zend_Serializer_Adapter_Igbinary extends Zend_Serializer_Adapter_AdapterAb
      */
     public function __construct($opts = array())
     {
-        if (!extension_loaded('igbinary')) {
+        if (!dd_extension_loaded('igbinary')) {
             require_once 'Zend/Serializer/Exception.php';
             throw new Zend_Serializer_Exception('PHP extension "igbinary" is required for this adapter');
         }

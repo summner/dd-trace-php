@@ -1,12 +1,5 @@
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar", "pkg_deb")
 
-pkg_tar(
-    name = "hmm",
-    strip_prefix = "../ddtrace_bridge",
-    package_dir = "/bridge",
-    srcs = ["@ddtrace_bridge"],
-)
-
 filegroup(
     name = "init",
     srcs = [
@@ -22,11 +15,11 @@ filegroup(
     ]
 )
 
-
 genrule(
-    name = "foo",
+    name = "source_list",
     srcs = [":init", ":autoloaders"],
-    outs = ["list.out"],
-    cmd = "php $(location dd_compiler.php) $(locations :autoloaders) $(location :init) > \"$@\"",
-    tools = ["dd_compiler.php"],
+    outs = ["source_list.txt"],
+    cmd = "PHPRC=$(location php.ini) php $(location dd_compiler.php) $(locations :autoloaders) $(location :init) > \"$@\"",
+    tools = ["dd_compiler.php", "php.ini"],
+    visibility = ["//visibility:public"],
 )

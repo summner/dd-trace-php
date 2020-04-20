@@ -42,7 +42,7 @@ class Text_Diff {
         }
 
         if ($engine == 'auto') {
-            $engine = extension_loaded('xdiff') ? 'xdiff' : 'native';
+            $engine = dd_extension_loaded('xdiff') ? 'xdiff' : 'native';
         } else {
             $engine = basename($engine);
         }

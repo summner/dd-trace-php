@@ -52,7 +52,7 @@ class MemcachedSandboxedIntegration extends SandboxedIntegration
 
     public function init()
     {
-        if (!extension_loaded('memcached')) {
+        if (!dd_extension_loaded('memcached')) {
             return Integration::NOT_AVAILABLE;
         }
         $integration = $this;

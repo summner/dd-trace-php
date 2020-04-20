@@ -143,12 +143,12 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
             throw new Zend_Filter_Exception("The mode '$mode' is unknown");
         }
 
-        if (($mode == 'Bz2') && (!extension_loaded('bz2'))) {
+        if (($mode == 'Bz2') && (!dd_extension_loaded('bz2'))) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This mode needs the bz2 extension');
         }
 
-        if (($mode == 'Gz') && (!extension_loaded('zlib'))) {
+        if (($mode == 'Gz') && (!dd_extension_loaded('zlib'))) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This mode needs the zlib extension');
         }

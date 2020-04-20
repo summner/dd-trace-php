@@ -61,7 +61,7 @@ class Zend_Service_StrikeIron_Base
      */
     public function __construct($options = array())
     {
-        if (!extension_loaded('soap')) {
+        if (!dd_extension_loaded('soap')) {
             /**
              * @see Zend_Service_StrikeIron_Exception
              */

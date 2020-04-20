@@ -20,7 +20,7 @@ class SigSegVTest extends WebFrameworkTestCase
 
     protected function setUp()
     {
-        if (!extension_loaded('posix')) {
+        if (!dd_extension_loaded('posix')) {
             $this->markTestSkipped(
                 'The posix extension is not available.'
             );

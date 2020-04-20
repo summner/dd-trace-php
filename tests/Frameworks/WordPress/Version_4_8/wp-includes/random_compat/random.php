@@ -69,7 +69,7 @@ if (PHP_VERSION_ID < 70000) {
          *
          * See ERRATA.md for our reasoning behind this particular order
          */
-        if (extension_loaded('libsodium')) {
+        if (dd_extension_loaded('libsodium')) {
             // See random_bytes_libsodium.php
             if (PHP_VERSION_ID >= 50300 && function_exists('\\Sodium\\randombytes_buf')) {
                 require_once $RandomCompatDIR.'/random_bytes_libsodium.php';
@@ -128,7 +128,7 @@ if (PHP_VERSION_ID < 70000) {
             &&
             PHP_VERSION_ID >= 50307
             &&
-            extension_loaded('mcrypt')
+            dd_extension_loaded('mcrypt')
         ) {
             // Prevent this code from hanging indefinitely on non-Windows;
             // see https://bugs.php.net/bug.php?id=69833
@@ -144,7 +144,7 @@ if (PHP_VERSION_ID < 70000) {
         if (
             !function_exists('random_bytes')
             &&
-            extension_loaded('com_dotnet')
+            dd_extension_loaded('com_dotnet')
             &&
             class_exists('COM')
         ) {
@@ -186,7 +186,7 @@ if (PHP_VERSION_ID < 70000) {
             &&
             !function_exists('random_bytes')
             &&
-            extension_loaded('openssl')
+            dd_extension_loaded('openssl')
         ) {
             // See random_bytes_openssl.php
             require_once $RandomCompatDIR.'/random_bytes_openssl.php';

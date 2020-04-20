@@ -30,7 +30,7 @@ class MysqliSandboxedIntegration extends SandboxedIntegration
      */
     public function init()
     {
-        if (!extension_loaded('mysqli')) {
+        if (!dd_extension_loaded('mysqli')) {
             return Integration::NOT_AVAILABLE;
         }
 

@@ -38,7 +38,7 @@ class MysqliIntegration extends Integration
 
     public static function load()
     {
-        if (!extension_loaded('mysqli')) {
+        if (!dd_extension_loaded('mysqli')) {
             return Integration::NOT_AVAILABLE;
         }
 

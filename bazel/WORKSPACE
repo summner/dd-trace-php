@@ -9,3 +9,20 @@ new_local_repository(
     path = "../src/DDTrace",
     build_file = "BUILD.my-ssl",
 )
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
+
+new_git_repository(
+    name = "io_github_com_julian_klode_triehash",
+    remote = "https://github.com/julian-klode/triehash.git",
+    commit = "e0bd5e08395bcd5ae105ad279d8d3ba67e8b738b",
+    shallow_since = "1555414252 +0200",
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
+
+filegroup(
+    name = "io_github_com_julian_klode_triehash",
+    srcs = ["triehash.pl"]
+)
+    """
+)

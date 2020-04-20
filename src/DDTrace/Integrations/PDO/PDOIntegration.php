@@ -50,7 +50,7 @@ class PDOIntegration extends Integration
      */
     public static function load()
     {
-        if (!extension_loaded('PDO')) {
+        if (!dd_extension_loaded('PDO')) {
             // PDO is provided through an extension and not through a class loader.
             return Integration::NOT_AVAILABLE;
         }

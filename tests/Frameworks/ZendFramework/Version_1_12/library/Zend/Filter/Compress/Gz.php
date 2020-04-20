@@ -57,7 +57,7 @@ class Zend_Filter_Compress_Gz extends Zend_Filter_Compress_CompressAbstract
      */
     public function __construct($options = null)
     {
-        if (!extension_loaded('zlib')) {
+        if (!dd_extension_loaded('zlib')) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This filter needs the zlib extension');
         }

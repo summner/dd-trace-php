@@ -186,7 +186,7 @@ class SimplePie_File
 					$out = "GET $get HTTP/1.1\r\n";
 					$out .= "Host: $url_parts[host]\r\n";
 					$out .= "User-Agent: $useragent\r\n";
-					if (extension_loaded('zlib'))
+					if (dd_extension_loaded('zlib'))
 					{
 						$out .= "Accept-Encoding: x-gzip,gzip,deflate\r\n";
 					}

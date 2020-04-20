@@ -492,7 +492,7 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addPhpIniRequirement('detect_unicode', false);
 
-        if (extension_loaded('suhosin')) {
+        if (dd_extension_loaded('suhosin')) {
             $this->addPhpIniRequirement(
                 'suhosin.executor.include.whitelist',
                 create_function('$cfgValue', 'return false !== stripos($cfgValue, "phar");'),
@@ -502,7 +502,7 @@ class SymfonyRequirements extends RequirementCollection
             );
         }
 
-        if (extension_loaded('xdebug')) {
+        if (dd_extension_loaded('xdebug')) {
             $this->addPhpIniRequirement(
                 'xdebug.show_exception_trace', false, true
             );
@@ -625,7 +625,7 @@ class SymfonyRequirements extends RequirementCollection
             'Install and enable the <strong>intl</strong> extension (used for validators).'
         );
 
-        if (extension_loaded('intl')) {
+        if (dd_extension_loaded('intl')) {
             // in some WAMP server installations, new Collator() returns null
             $this->addRecommendation(
                 null !== new Collator('fr_FR'),
@@ -663,15 +663,15 @@ class SymfonyRequirements extends RequirementCollection
         }
 
         $accelerator =
-            (extension_loaded('eaccelerator') && ini_get('eaccelerator.enable'))
+            (dd_extension_loaded('eaccelerator') && ini_get('eaccelerator.enable'))
             ||
-            (extension_loaded('apc') && ini_get('apc.enabled'))
+            (dd_extension_loaded('apc') && ini_get('apc.enabled'))
             ||
-            (extension_loaded('Zend OPcache') && ini_get('opcache.enable'))
+            (dd_extension_loaded('Zend OPcache') && ini_get('opcache.enable'))
             ||
-            (extension_loaded('xcache') && ini_get('xcache.cacher'))
+            (dd_extension_loaded('xcache') && ini_get('xcache.cacher'))
             ||
-            (extension_loaded('wincache') && ini_get('wincache.ocenabled'))
+            (dd_extension_loaded('wincache') && ini_get('wincache.ocenabled'))
         ;
 
         $this->addRecommendation(

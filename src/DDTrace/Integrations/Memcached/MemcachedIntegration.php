@@ -53,7 +53,7 @@ class MemcachedIntegration extends Integration
 
     public static function load()
     {
-        if (!extension_loaded('memcached')) {
+        if (!dd_extension_loaded('memcached')) {
             return Integration::NOT_AVAILABLE;
         }
 

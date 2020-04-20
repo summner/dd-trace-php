@@ -23,7 +23,7 @@ class MongoSandboxedIntegration extends SandboxedIntegration
 
     public function init()
     {
-        if (!extension_loaded('mongo') || Versions::phpVersionMatches('5.4')) {
+        if (!dd_extension_loaded('mongo') || Versions::phpVersionMatches('5.4')) {
             return SandboxedIntegration::NOT_AVAILABLE;
         }
 

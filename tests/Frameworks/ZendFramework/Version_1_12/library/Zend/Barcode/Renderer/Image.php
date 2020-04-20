@@ -209,7 +209,7 @@ class Zend_Barcode_Renderer_Image extends Zend_Barcode_Renderer_RendererAbstract
      */
     protected function _initRenderer()
     {
-        if (!extension_loaded('gd')) {
+        if (!dd_extension_loaded('gd')) {
             require_once 'Zend/Barcode/Exception.php';
             $e = new Zend_Barcode_Exception(
                 'Gd extension must be loaded to render barcode as image'

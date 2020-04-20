@@ -46,7 +46,7 @@ class Zend_Pdf_Filter_Compression_Flate extends Zend_Pdf_Filter_Compression
             $data = self::_applyEncodeParams($data, $params);
         }
 
-        if (extension_loaded('zlib')) {
+        if (dd_extension_loaded('zlib')) {
             $trackErrors = ini_get( "track_errors");
             ini_set('track_errors', '1');
 
@@ -77,7 +77,7 @@ class Zend_Pdf_Filter_Compression_Flate extends Zend_Pdf_Filter_Compression
     {
         global $php_errormsg;
 
-        if (extension_loaded('zlib')) {
+        if (dd_extension_loaded('zlib')) {
             $trackErrors = ini_get( "track_errors");
             ini_set('track_errors', '1');
 

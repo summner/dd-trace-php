@@ -95,7 +95,7 @@ abstract class Zend_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Abstract
         $dsn = $this->_dsn();
 
         // check for PDO extension
-        if (!extension_loaded('pdo')) {
+        if (!dd_extension_loaded('pdo')) {
             /**
              * @see Zend_Db_Adapter_Exception
              */
@@ -334,7 +334,7 @@ abstract class Zend_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Abstract
     public function setFetchMode($mode)
     {
         //check for PDO extension
-        if (!extension_loaded('pdo')) {
+        if (!dd_extension_loaded('pdo')) {
             /**
              * @see Zend_Db_Adapter_Exception
              */

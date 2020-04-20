@@ -55,7 +55,7 @@ class Zend_Filter_Compress_Bz2 extends Zend_Filter_Compress_CompressAbstract
      */
     public function __construct($options = null)
     {
-        if (!extension_loaded('bz2')) {
+        if (!dd_extension_loaded('bz2')) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This filter needs the bz2 extension');
         }

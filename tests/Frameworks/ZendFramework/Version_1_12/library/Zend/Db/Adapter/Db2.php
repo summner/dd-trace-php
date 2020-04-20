@@ -123,7 +123,7 @@ class Zend_Db_Adapter_Db2 extends Zend_Db_Adapter_Abstract
             return;
         }
 
-        if (!extension_loaded('ibm_db2')) {
+        if (!dd_extension_loaded('ibm_db2')) {
             /**
              * @see Zend_Db_Adapter_Db2_Exception
              */

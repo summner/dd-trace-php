@@ -10,6 +10,10 @@ spl_autoload_register(['\DDTrace\Bridge\RequiredDepsAutoloader', 'load'], true, 
 
 const DD_TRACE_VERSION = "123";
 
+function dd_extension_loaded() {
+    return true;
+};
+
 function dd_trace_internal_fn()
 {
     // echo "dd_trace_internal_fn" . PHP_EOL;
@@ -22,7 +26,16 @@ function dd_trace_push_span_id()
 
 function dd_trace($a, $b)
 {
-    // echo "dd_trace " . implode(", ", [$a]) . PHP_EOL;
+    $key = array_search(__FUNCTION__, array_column(debug_backtrace(), 'function'));
+    // var_dump(debug_backtrace()[$key]['file']);
+    $callerFile = explode("/src/", debug_backtrace()[$key]['file'])[1];
+
+    // echo "\"" . $clazz . ":" . $method . "\": \"" . $callerFile . "\", " . PHP_EOL;
+    if (is_string($b)){
+        echo implode(":", [$a, $b]) . PHP_EOL;
+    } else {
+        echo $a . PHP_EOL;
+    }
 }
 
 function dd_trace_method($clazz, $method)
@@ -30,8 +43,8 @@ function dd_trace_method($clazz, $method)
     $key = array_search(__FUNCTION__, array_column(debug_backtrace(), 'function'));
     // var_dump(debug_backtrace()[$key]['file']);
     $callerFile = explode("/src/", debug_backtrace()[$key]['file'])[1];
-
-    echo "\"" . $clazz . ":" . $method . "\": \"" . $callerFile . "\", " . PHP_EOL;
+    echo implode(":", [$clazz, $method]) . PHP_EOL;
+    // echo "\"" . $clazz . ":" . $method . "\": \"" . $callerFile . "\", " . PHP_EOL;
 }
 
 function dd_trace_function()
@@ -51,6 +64,4 @@ function dd_trace_env_config()
     return True;
 }
 
-echo "[" . PHP_EOL;
 require_once $argv[3];
-echo "]" . PHP_EOL;

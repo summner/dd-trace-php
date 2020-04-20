@@ -166,7 +166,7 @@ class Zend_Auth_Adapter_Http implements Zend_Auth_Adapter_Interface
      */
     public function __construct(array $config)
     {
-        if (!extension_loaded('hash')) {
+        if (!dd_extension_loaded('hash')) {
             /**
              * @see Zend_Auth_Adapter_Exception
              */

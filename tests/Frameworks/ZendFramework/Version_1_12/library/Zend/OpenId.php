@@ -551,9 +551,9 @@ class Zend_OpenId
      */
     static protected function binToBigNum($bin)
     {
-        if (extension_loaded('gmp')) {
+        if (dd_extension_loaded('gmp')) {
             return gmp_init(bin2hex($bin), 16);
-        } else if (extension_loaded('bcmath')) {
+        } else if (dd_extension_loaded('bcmath')) {
             $bn = 0;
             $len = Zend_OpenId::strlen($bin);
             for ($i = 0; $i < $len; $i++) {
@@ -578,7 +578,7 @@ class Zend_OpenId
      */
     static protected function bigNumToBin($bn)
     {
-        if (extension_loaded('gmp')) {
+        if (dd_extension_loaded('gmp')) {
             $s = gmp_strval($bn, 16);
             if (strlen($s) % 2 != 0) {
                 $s = '0' . $s;
@@ -586,7 +586,7 @@ class Zend_OpenId
                 $s = '00' . $s;
             }
             return pack("H*", $s);
-        } else if (extension_loaded('bcmath')) {
+        } else if (dd_extension_loaded('bcmath')) {
             $cmp = bccomp($bn, 0);
             if ($cmp == 0) {
                 return "\0";
@@ -642,9 +642,9 @@ class Zend_OpenId
                 $priv_key    = self::randomBytes(Zend_OpenId::strlen($p));
             }
             $bn_priv_key = self::binToBigNum($priv_key);
-            if (extension_loaded('gmp')) {
+            if (dd_extension_loaded('gmp')) {
                 $bn_pub_key  = gmp_powm($bn_g, $bn_priv_key, $bn_p);
-            } else if (extension_loaded('bcmath')) {
+            } else if (dd_extension_loaded('bcmath')) {
                 $bn_pub_key  = bcpowmod($bn_g, $bn_priv_key, $bn_p);
             }
             $pub_key     = self::bigNumToBin($bn_pub_key);
@@ -700,11 +700,11 @@ class Zend_OpenId
                 $ret = "\0" . $ret;
             }
             return $ret;
-        } else if (extension_loaded('gmp')) {
+        } else if (dd_extension_loaded('gmp')) {
             $bn_pub_key = self::binToBigNum($pub_key);
             $bn_secret  = gmp_powm($bn_pub_key, $dh['priv_key'], $dh['p']);
             return self::bigNumToBin($bn_secret);
-        } else if (extension_loaded('bcmath')) {
+        } else if (dd_extension_loaded('bcmath')) {
             $bn_pub_key = self::binToBigNum($pub_key);
             $bn_secret  = bcpowmod($bn_pub_key, $dh['priv_key'], $dh['p']);
             return self::bigNumToBin($bn_secret);
@@ -746,7 +746,7 @@ class Zend_OpenId
      */
     static public function strlen($str)
     {
-        if (extension_loaded('mbstring') &&
+        if (dd_extension_loaded('mbstring') &&
             (((int)ini_get('mbstring.func_overload')) & 2)) {
             return mb_strlen($str, 'latin1');
         } else {

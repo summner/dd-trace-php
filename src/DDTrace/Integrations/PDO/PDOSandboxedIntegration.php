@@ -34,7 +34,7 @@ class PDOSandboxedIntegration extends SandboxedIntegration
      */
     public function init()
     {
-        if (!extension_loaded('PDO')) {
+        if (!dd_extension_loaded('PDO')) {
             // PDO is provided through an extension and not through a class loader.
             return SandboxedIntegration::NOT_AVAILABLE;
         }

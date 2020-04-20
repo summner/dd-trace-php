@@ -1242,12 +1242,12 @@ class SimplePie
 	public function init()
 	{
 		// Check absolute bare minimum requirements.
-		if (!extension_loaded('xml') || !extension_loaded('pcre'))
+		if (!dd_extension_loaded('xml') || !dd_extension_loaded('pcre'))
 		{
 			return false;
 		}
 		// Then check the xml extension is sane (i.e., libxml 2.7.x issue on PHP < 5.2.9 and libxml 2.7.0 to 2.7.2 on any version) if we don't have xmlreader.
-		elseif (!extension_loaded('xmlreader'))
+		elseif (!dd_extension_loaded('xmlreader'))
 		{
 			static $xml_is_sane = null;
 			if ($xml_is_sane === null)

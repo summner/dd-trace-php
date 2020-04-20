@@ -1835,7 +1835,7 @@ class HttpSocketTest extends CakeTestCase {
  * @return void
  */
 	public function testVerifyPeer() {
-		$this->skipIf(!extension_loaded('openssl'), 'OpenSSL is not enabled cannot test SSL.');
+		$this->skipIf(!dd_extension_loaded('openssl'), 'OpenSSL is not enabled cannot test SSL.');
 		$socket = new HttpSocket();
 		try {
 			$socket->get('https://tv.eurosport.com/');

@@ -799,7 +799,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
     public function setFont($value)
     {
         if (is_int($value) && $value >= 1 && $value <= 5) {
-            if (!extension_loaded('gd')) {
+            if (!dd_extension_loaded('gd')) {
                 require_once 'Zend/Barcode/Object/Exception.php';
                 throw new Zend_Barcode_Object_Exception(
                     'GD extension is required to use numeric font'

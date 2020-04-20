@@ -126,7 +126,7 @@ class LaravelProvider extends ServiceProvider
         if (!Configuration::get()->isIntegrationEnabled(self::NAME)) {
             return false;
         }
-        if (!extension_loaded('ddtrace')) {
+        if (!dd_extension_loaded('ddtrace')) {
             trigger_error('ddtrace extension required to load Laravel integration.', E_USER_WARNING);
             return false;
         }

@@ -49,7 +49,7 @@ $requirementsChecker = new YiiRequirementChecker();
 $gdMemo = $imagickMemo = 'Either GD PHP extension with FreeType support or ImageMagick PHP extension with PNG support is required for image CAPTCHA.';
 $gdOK = $imagickOK = false;
 
-if (extension_loaded('imagick')) {
+if (dd_extension_loaded('imagick')) {
     $imagick = new Imagick();
     $imagickFormats = $imagick->queryFormats('PNG');
     if (in_array('PNG', $imagickFormats)) {
@@ -59,7 +59,7 @@ if (extension_loaded('imagick')) {
     }
 }
 
-if (extension_loaded('gd')) {
+if (dd_extension_loaded('gd')) {
     $gdInfo = gd_info();
     if (!empty($gdInfo['FreeType Support'])) {
         $gdOK = true;
@@ -76,27 +76,27 @@ $requirements = array(
     array(
         'name' => 'PDO extension',
         'mandatory' => true,
-        'condition' => extension_loaded('pdo'),
+        'condition' => dd_extension_loaded('pdo'),
         'by' => 'All DB-related classes',
     ),
     array(
         'name' => 'PDO SQLite extension',
         'mandatory' => false,
-        'condition' => extension_loaded('pdo_sqlite'),
+        'condition' => dd_extension_loaded('pdo_sqlite'),
         'by' => 'All DB-related classes',
         'memo' => 'Required for SQLite database.',
     ),
     array(
         'name' => 'PDO MySQL extension',
         'mandatory' => false,
-        'condition' => extension_loaded('pdo_mysql'),
+        'condition' => dd_extension_loaded('pdo_mysql'),
         'by' => 'All DB-related classes',
         'memo' => 'Required for MySQL database.',
     ),
     array(
         'name' => 'PDO PostgreSQL extension',
         'mandatory' => false,
-        'condition' => extension_loaded('pdo_pgsql'),
+        'condition' => dd_extension_loaded('pdo_pgsql'),
         'by' => 'All DB-related classes',
         'memo' => 'Required for PostgreSQL database.',
     ),
@@ -104,9 +104,9 @@ $requirements = array(
     array(
         'name' => 'Memcache extension',
         'mandatory' => false,
-        'condition' => extension_loaded('memcache') || extension_loaded('memcached'),
+        'condition' => dd_extension_loaded('memcache') || dd_extension_loaded('memcached'),
         'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html">MemCache</a>',
-        'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
+        'memo' => dd_extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
     ),
     // CAPTCHA:
     array(
@@ -152,7 +152,7 @@ if (!version_compare(phpversion(), '5.5', '>=')) {
     $requirements[] = array(
         'name' => 'APC extension',
         'mandatory' => false,
-        'condition' => extension_loaded('apc'),
+        'condition' => dd_extension_loaded('apc'),
         'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-apccache.html">ApcCache</a>',
     );
 }

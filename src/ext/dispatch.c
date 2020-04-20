@@ -74,6 +74,7 @@ ddtrace_dispatch_t *ddtrace_find_dispatch(zval *this, zend_function *fbc, zval *
         // Check for class on static method static
         class = fbc->common.scope;
     }
+    return false;
 
     if (class) {
         return find_method_dispatch(class, fname TSRMLS_CC);

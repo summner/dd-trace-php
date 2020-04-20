@@ -73,7 +73,7 @@ class Zend_Queue_Adapter_Memcacheq extends Zend_Queue_Adapter_AdapterAbstract
      */
     public function __construct($options, Zend_Queue $queue = null)
     {
-        if (!extension_loaded('memcache')) {
+        if (!dd_extension_loaded('memcache')) {
             require_once 'Zend/Queue/Exception.php';
             throw new Zend_Queue_Exception('Memcache extension does not appear to be loaded');
         }

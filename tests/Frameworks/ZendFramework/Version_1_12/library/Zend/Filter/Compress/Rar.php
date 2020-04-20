@@ -59,7 +59,7 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
      */
     public function __construct($options = null)
     {
-        if (!extension_loaded('rar')) {
+        if (!dd_extension_loaded('rar')) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This filter needs the rar extension');
         }

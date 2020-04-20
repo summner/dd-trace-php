@@ -69,7 +69,7 @@ class Zend_Crypt_Rsa
      */
     public function __construct(array $options = null)
     {
-        if (!extension_loaded('openssl')) {
+        if (!dd_extension_loaded('openssl')) {
             require_once 'Zend/Crypt/Rsa/Exception.php';
             throw new Zend_Crypt_Rsa_Exception('Zend_Crypt_Rsa requires openssl extension to be loaded.');
         }

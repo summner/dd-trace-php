@@ -36,7 +36,7 @@ final class CurlSandboxedIntegration extends SandboxedIntegration
 
     public function init()
     {
-        if (!extension_loaded('curl')) {
+        if (!dd_extension_loaded('curl')) {
             return SandboxedIntegration::NOT_AVAILABLE;
         }
 

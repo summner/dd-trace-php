@@ -117,7 +117,7 @@ class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
             return;
         }
 
-        if (!extension_loaded('sqlsrv')) {
+        if (!dd_extension_loaded('sqlsrv')) {
             /**
              * @see Zend_Db_Adapter_Sqlsrv_Exception
              */

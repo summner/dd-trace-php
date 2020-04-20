@@ -92,21 +92,21 @@ class Zend_Crypt_Math_BigInteger
     protected function _loadAdapter($extension = null)
     {
         if ($extension === null) {
-            if (extension_loaded('gmp')) {
+            if (dd_extension_loaded('gmp')) {
                 $extension = 'gmp';
-            //} elseif (extension_loaded('big_int')) {
+            //} elseif (dd_extension_loaded('big_int')) {
             //    $extension = 'big_int';
             } else {
                 $extension = 'bcmath';
             }
         }
-        if($extension == 'gmp' && extension_loaded('gmp')) {
+        if($extension == 'gmp' && dd_extension_loaded('gmp')) {
             require_once 'Zend/Crypt/Math/BigInteger/Gmp.php';
             $this->_math = new Zend_Crypt_Math_BigInteger_Gmp();
-        //} elseif($extension == 'bigint' && extension_loaded('big_int')) {
+        //} elseif($extension == 'bigint' && dd_extension_loaded('big_int')) {
         //    require_once 'Zend/Crypt_Math/BigInteger/Bigint.php';
         //    $this->_math = new Zend_Crypt_Math_BigInteger_Bigint();
-        } elseif ($extension == 'bcmath' && extension_loaded('bcmath')) {
+        } elseif ($extension == 'bcmath' && dd_extension_loaded('bcmath')) {
             require_once 'Zend/Crypt/Math/BigInteger/Bcmath.php';
             $this->_math = new Zend_Crypt_Math_BigInteger_Bcmath();
         } else {

@@ -34,7 +34,7 @@ class SymfonyBundle extends Bundle
             return;
         }
 
-        if (!extension_loaded('ddtrace')) {
+        if (!dd_extension_loaded('ddtrace')) {
             trigger_error('ddtrace extension required to load Symfony integration.', E_USER_WARNING);
             return;
         }

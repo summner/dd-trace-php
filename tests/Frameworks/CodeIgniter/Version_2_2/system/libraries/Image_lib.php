@@ -1447,7 +1447,7 @@ class CI_Image_lib {
 	 */
 	function gd_loaded()
 	{
-		if ( ! extension_loaded('gd'))
+		if ( ! dd_extension_loaded('gd'))
 		{
 			if ( ! dl('gd.so'))
 			{

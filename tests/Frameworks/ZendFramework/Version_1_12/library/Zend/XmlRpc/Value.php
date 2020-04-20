@@ -105,7 +105,7 @@ abstract class Zend_XmlRpc_Value
     public static function getGenerator()
     {
         if (!self::$_generator) {
-            if (extension_loaded('xmlwriter')) {
+            if (dd_extension_loaded('xmlwriter')) {
                 require_once 'Zend/XmlRpc/Generator/XmlWriter.php';
                 self::$_generator = new Zend_XmlRpc_Generator_XmlWriter();
             } else {

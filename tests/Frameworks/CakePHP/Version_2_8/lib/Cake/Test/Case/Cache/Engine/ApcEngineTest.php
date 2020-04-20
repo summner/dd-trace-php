@@ -39,14 +39,14 @@ class ApcEngineTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$hasApc = extension_loaded('apc') || extension_loaded('apcu');
+		$hasApc = dd_extension_loaded('apc') || dd_extension_loaded('apcu');
 		$this->skipIf(!$hasApc, 'Apc is not installed or configured properly.');
 
 		if (PHP_SAPI === 'cli') {
 			$this->skipIf(!ini_get('apc.enable_cli'), 'APC is not enabled for the CLI.');
 		}
 
-		if (extension_loaded('apcu')) {
+		if (dd_extension_loaded('apcu')) {
 			$this->_apcExtension = 'apcu';
 		}
 

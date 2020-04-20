@@ -55,7 +55,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
      */
     public function __construct(array $options = array())
     {
-        if (!extension_loaded('wincache')) {
+        if (!dd_extension_loaded('wincache')) {
             Zend_Cache::throwException('The wincache extension must be loaded for using this backend !');
         }
         parent::__construct($options);

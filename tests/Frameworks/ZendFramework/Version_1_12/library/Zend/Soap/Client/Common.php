@@ -21,7 +21,7 @@
  */
 
 
-if (extension_loaded('soap')) {
+if (dd_extension_loaded('soap')) {
 
 /**
  * @category   Zend
@@ -73,4 +73,4 @@ class Zend_Soap_Client_Common extends SoapClient
 
 }
 
-} // end if (extension_loaded('soap')
+} // end if (dd_extension_loaded('soap')

@@ -56,7 +56,7 @@ class Zend_Serializer_Adapter_Wddx extends Zend_Serializer_Adapter_AdapterAbstra
      */
     public function __construct($opts = array())
     {
-        if (!extension_loaded('wddx')) {
+        if (!dd_extension_loaded('wddx')) {
             require_once 'Zend/Serializer/Exception.php';
             throw new Zend_Serializer_Exception('PHP extension "wddx" is required for this adapter');
         }

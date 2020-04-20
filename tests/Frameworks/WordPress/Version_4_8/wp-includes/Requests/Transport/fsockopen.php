@@ -429,7 +429,7 @@ class Requests_Transport_fsockopen implements Requests_Transport {
 
 		// If needed, check that streams support SSL
 		if (isset($capabilities['ssl']) && $capabilities['ssl']) {
-			if (!extension_loaded('openssl') || !function_exists('openssl_x509_parse')) {
+			if (!dd_extension_loaded('openssl') || !function_exists('openssl_x509_parse')) {
 				return false;
 			}
 

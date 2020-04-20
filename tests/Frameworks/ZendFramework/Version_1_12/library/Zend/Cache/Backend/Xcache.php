@@ -72,7 +72,7 @@ class Zend_Cache_Backend_Xcache extends Zend_Cache_Backend implements Zend_Cache
      */
     public function __construct(array $options = array())
     {
-        if (!extension_loaded('xcache')) {
+        if (!dd_extension_loaded('xcache')) {
             Zend_Cache::throwException('The xcache extension must be loaded for using this backend !');
         }
         parent::__construct($options);

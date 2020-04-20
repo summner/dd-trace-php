@@ -1384,7 +1384,7 @@ class Zend_Pdf
                     case 'Creator':
                         // break intentionally omitted
                     case 'Producer':
-                        if (extension_loaded('mbstring') === true) {
+                        if (dd_extension_loaded('mbstring') === true) {
                             $detected = mb_detect_encoding($value);
                             if ($detected !== 'ASCII') {
                                 $value = "\xfe\xff" . mb_convert_encoding($value, 'UTF-16', $detected);

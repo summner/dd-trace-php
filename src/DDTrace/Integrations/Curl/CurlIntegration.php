@@ -45,7 +45,7 @@ class CurlIntegration extends Integration
      */
     public static function load()
     {
-        if (!extension_loaded('curl')) {
+        if (!dd_extension_loaded('curl')) {
             // `curl` extension is not loaded, if it does not exists we can return this integration as
             // not available.
             return Integration::NOT_AVAILABLE;

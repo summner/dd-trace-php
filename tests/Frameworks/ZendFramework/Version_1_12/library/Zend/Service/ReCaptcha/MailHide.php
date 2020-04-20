@@ -150,7 +150,7 @@ class Zend_Service_ReCaptcha_MailHide extends Zend_Service_ReCaptcha
      */
     protected function _requireMcrypt()
     {
-        if (!extension_loaded('mcrypt')) {
+        if (!dd_extension_loaded('mcrypt')) {
             /** @see Zend_Service_ReCaptcha_MailHide_Exception */
             require_once 'Zend/Service/ReCaptcha/MailHide/Exception.php';
 

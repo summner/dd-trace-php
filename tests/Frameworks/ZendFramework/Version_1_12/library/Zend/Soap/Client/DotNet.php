@@ -23,7 +23,7 @@
 /** Zend_Soap_Client */
 require_once 'Zend/Soap/Client.php';
 
-if (extension_loaded('soap')) {
+if (dd_extension_loaded('soap')) {
 
 /**
  * Zend_Soap_Client_Local
@@ -92,4 +92,4 @@ class Zend_Soap_Client_DotNet extends Zend_Soap_Client
 
 }
 
-} // end if (extension_loaded('soap')
+} // end if (dd_extension_loaded('soap')

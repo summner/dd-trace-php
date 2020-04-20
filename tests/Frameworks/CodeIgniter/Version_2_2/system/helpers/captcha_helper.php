@@ -74,7 +74,7 @@ if ( ! function_exists('create_captcha'))
 			return FALSE;
 		}
 
-		if ( ! extension_loaded('gd'))
+		if ( ! dd_extension_loaded('gd'))
 		{
 			return FALSE;
 		}

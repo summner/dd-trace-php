@@ -83,7 +83,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
      */
     public function __construct($options = array())
     {
-        if (!extension_loaded('openssl')) {
+        if (!dd_extension_loaded('openssl')) {
             require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('This filter needs the openssl extension');
         }

@@ -42,7 +42,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @return bool
 	 */
 	public static function test( $args = array() ) {
-		if ( ! extension_loaded('gd') || ! function_exists('gd_info') )
+		if ( ! dd_extension_loaded('gd') || ! function_exists('gd_info') )
 			return false;
 
 		// On some setups GD library does not provide imagerotate() - Ticket #11536

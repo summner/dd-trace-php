@@ -1452,7 +1452,7 @@ class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_Adapt
         $long = 0;
 
         if ($nbytes > 7) {
-            if (!extension_loaded('bcmath')) {
+            if (!dd_extension_loaded('bcmath')) {
                 return INF;
             }
 
